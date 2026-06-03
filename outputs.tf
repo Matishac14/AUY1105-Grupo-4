@@ -1,14 +1,24 @@
-output "ec2_public_ip" {
-  description = "IP pública asignada a la instancia EC2 (si aplica)."
-  value       = module.ec2_instance.public_ip
+output "vpc_id" {
+  description = "ID de la VPC creada por el módulo vpc."
+  value       = module.vpc.vpc_id
 }
 
-output "ec2_instance_name" {
-  description = "Nombre lógico de la instancia (coincide con el argumento name del módulo EC2)."
-  value       = "AUY1105-${var.project_name}-ec2"
+output "subnet_ids" {
+  description = "IDs de subnets creadas por el módulo vpc."
+  value       = module.vpc.subnet_ids
 }
 
-output "vpc_name" {
-  description = "Nombre configurado para la VPC."
-  value       = module.vpc.name
+output "instance_id" {
+  description = "ID de la instancia EC2 creada por el módulo ec2."
+  value       = module.ec2.instance_id
+}
+
+output "instance_ip" {
+  description = "IP pública de la instancia EC2."
+  value       = module.ec2.instance_ip
+}
+
+output "bucket_name" {
+  description = "Nombre del bucket S3 creado por el módulo s3."
+  value       = module.s3.bucket_name
 }

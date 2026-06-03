@@ -1,3 +1,4 @@
-project_name = "app"
+project_name = "cheese-factory"
 environment  = "dev"
 my_ip        = "0.0.0.0/0"
+bucket_name  = "nombre-del-bucket-generado-en-s3"

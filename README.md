@@ -19,11 +19,13 @@ VPC con subnets públicas y privadas.
 ## Despliegue inicial con Terraform
 #### Inicialización del proyecto Terraform:
 
-Evidencia: ![Terraform Init](img/ev3/01_Terraform_Init.png)
+Evidencia: 
+![Terraform Init](img/ev3/01_Terraform_Init.png)
 
 #### Plan de ejecución de la infraestructura:
 
-Evidencia: ![Terraform Plan](img/ev3/02_Terraform_Plan.png)
+Evidencia: 
+![Terraform Plan](img/ev3/02_Terraform_Plan.png)
 
 #### Aplicación del plan y creación de recursos:
 
@@ -33,27 +35,37 @@ Evidencias:
 
 #### Revisión de outputs para confirmar IDs y datos clave:
 
-Evidencia: ![Terraform Outputs](img/ev3/05_Terraform_Outputs.png)
+Evidencia: 
+![Terraform Outputs](img/ev3/05_Terraform_Outputs.png)
 
 ### Validación en la consola de AWS de cada recurso:
 
-#### Bucket S3: ![06_Validación_S3.png](img/ev3/06_Validacion_S3.png)
+#### Bucket S3: 
+![06_Validación_S3.png](img/ev3/06_Validacion_S3.png)
 
-#### VPC: ![AWS GUI VPC](img/ev3/07_Validacion_VPC.png)
+#### VPC: 
+![AWS GUI VPC](img/ev3/07_Validacion_VPC.png)
 
-#### Subnets: ![08_Validación_Subnet.png](img/ev3/08_Validacion_Subnet.png)
+#### Subnets: 
+![08_Validación_Subnet.png](img/ev3/08_Validacion_Subnet.png)
 
-#### Route Tables: ![Terraform Init](img/ev3/09_Validacion_Route_Tables.png)
+#### Route Tables: 
+![Terraform Init](img/ev3/09_Validacion_Route_Tables.png)
 
-#### Asociaciones de subnets a tablas de ruteo: ![Terraform Init](img/ev3/10_Validacion_Route_Tables_Subnet_Associations.png)
+#### Asociaciones de subnets a tablas de ruteo: 
+![Terraform Init](img/ev3/10_Validacion_Route_Tables_Subnet_Associations.png)
 
-#### Internet Gateway: ![Terraform Init](img/ev3/11_Validacion_Internet_Gateway.png)
+#### Internet Gateway: 
+![Terraform Init](img/ev3/11_Validacion_Internet_Gateway.png)
 
-#### Instancia EC2: ![Terraform Init](img/ev3/12_Validacion_Instancia.png)
+#### Instancia EC2: 
+![Terraform Init](img/ev3/12_Validacion_Instancia.png)
 
-#### Reglas de outbound del SG: ![Terraform Init](img/ev3/13_Validacion_Security_Group_Outbound_Rules.png)
+#### Reglas de outbound del SG: 
+![Terraform Init](img/ev3/13_Validacion_Security_Group_Outbound_Rules.png)
 
-#### Reglas de inbound del SG: ![Terraform Init](img/ev3/14_Validacion_Security_Group_Inbound_Rules.png)
+#### Reglas de inbound del SG: 
+![Terraform Init](img/ev3/14_Validacion_Security_Group_Inbound_Rules.png)
 
 ## Escenario 1 — Recuperación del estado perdido (terraform state import)
 En este escenario se simula la pérdida del archivo terraform.tfstate y se reconstruye el estado importando cada recurso existente en AWS.
@@ -67,48 +79,62 @@ Evidencias:
 ![Terraform Init](img/ev3/15_Validacion_Cambio_Tfstate.png)
 
 
-#### Plan posterior a la pérdida de tfstate: ![Terraform Init](img/ev3/16_Terraform_Plan_Posterior_Perdida_Tfstate.png)
+#### Plan posterior a la pérdida de tfstate: 
+![Terraform Init](img/ev3/16_Terraform_Plan_Posterior_Perdida_Tfstate.png)
 
 2. Importación de recursos al estado
    Se realiza terraform state import para cada recurso existente:
 
 #### Primer intento fallido de importación del bucket S3 (error por referencia a subnet no disponible en main.tf):
 
-Evidencia: ![Terraform Init](img/ev3/17_Importar_S3_Tfstate_error.png)
+Evidencia: 
+![Terraform Init](img/ev3/17_Importar_S3_Tfstate_error.png)
 
 #### Corrección de la configuración en main.tf para que Terraform conozca las subnets:
 
-Evidencia: ![Terraform Init](img/ev3/18_Correccion_Main_Para_Encontrar_Subnet.png)
+Evidencia: 
+![Terraform Init](img/ev3/18_Correccion_Main_Para_Encontrar_Subnet.png)
 
 #### Importaciones exitosas:
 
-#### S3: ![Terraform Init](img/ev3/19_Importar_S3_Tfstate_OK.png)
+#### S3: 
+![Terraform Init](img/ev3/19_Importar_S3_Tfstate_OK.png)
 
-#### VPC: ![Terraform Init](img/ev3/20_Importar_VPC_Tfstate_OK.png)
+#### VPC: 
+![Terraform Init](img/ev3/20_Importar_VPC_Tfstate_OK.png)
 
-#### EC2: ![Terraform Init](img/ev3/21_Importar_EC2_Tfstate_OK.png)
+#### EC2: 
+![Terraform Init](img/ev3/21_Importar_EC2_Tfstate_OK.png)
 
-#### Internet Gateway: ![Terraform Init](img/ev3/22_Importar_Internet_Gateway_Tfstate_OK.png)
+#### Internet Gateway: 
+![Terraform Init](img/ev3/22_Importar_Internet_Gateway_Tfstate_OK.png)
 
-#### Security Group: ![Terraform Init](img/ev3/23_Importar_Security_Group_Tfstate_OK.png)
+#### Security Group: 
+![Terraform Init](img/ev3/23_Importar_Security_Group_Tfstate_OK.png)
 
-#### Route Table: ![Terraform Init](img/ev3/24_Importar_Route_Table_Tfstate_OK.png)
+#### Route Table: 
+![Terraform Init](img/ev3/24_Importar_Route_Table_Tfstate_OK.png)
 
-#### Subnets públicas 1–3: ![Terraform Init](img/ev3/25_Importar_Subnet_Public_1_Tfstate_OK.png), ![Terraform Init](img/ev3/26_Importar_Subnet_Public_2_Tfstate_OK.png), ![Terraform Init](img/ev3/27_Importar_Subnet_Public_3_Tfstate_OK.png).
+#### Subnets públicas 1–3: 
+![Terraform Init](img/ev3/25_Importar_Subnet_Public_1_Tfstate_OK.png), ![Terraform Init](img/ev3/26_Importar_Subnet_Public_2_Tfstate_OK.png), ![Terraform Init](img/ev3/27_Importar_Subnet_Public_3_Tfstate_OK.png).
 
 
-### Asociaciones de tablas de ruteo con subnets públicas: ![Terraform Init](img/ev3/31_Importar_Route_Table_Association_Subnet_Public_1_Tfstate_OK.png), ![Terraform Init](img/ev3/32_Importar_Route_Table_Association_Subnet_Public_2_Tfstate_OK.png), ![Terraform Init](img/ev3/33_Importar_Route_Table_Association_Subnet_Public_3_Tfstate_OK.png).
+### Asociaciones de tablas de ruteo con subnets públicas: 
+![Terraform Init](img/ev3/31_Importar_Route_Table_Association_Subnet_Public_1_Tfstate_OK.png), ![Terraform Init](img/ev3/32_Importar_Route_Table_Association_Subnet_Public_2_Tfstate_OK.png), ![Terraform Init](img/ev3/33_Importar_Route_Table_Association_Subnet_Public_3_Tfstate_OK.png).
 
-#### Subnets privada 1–3: ![28_Importar_Subnet_Private_1_Tfstate_OK.png](img/ev3/28_Importar_Subnet_Private_1_Tfstate_OK.png), ![29_Importar_Subnet_Private_2_Tfstate_OK.png](img/ev3/29_Importar_Subnet_Private_2_Tfstate_OK.png), ![30_Importar_Subnet_Private_3_Tfstate_OK.png](img/ev3/30_Importar_Subnet_Private_3_Tfstate_OK.png)
+#### Subnets privada 1–3: 
+![28_Importar_Subnet_Private_1_Tfstate_OK.png](img/ev3/28_Importar_Subnet_Private_1_Tfstate_OK.png), ![29_Importar_Subnet_Private_2_Tfstate_OK.png](img/ev3/29_Importar_Subnet_Private_2_Tfstate_OK.png), ![30_Importar_Subnet_Private_3_Tfstate_OK.png](img/ev3/30_Importar_Subnet_Private_3_Tfstate_OK.png)
 
 3. Verificación de estado y plan sin cambios
    Listado de recursos en el estado con terraform state list:
 
-Evidencia: ![Terraform Init](img/ev3/34_Terraform_State_List.png)
+Evidencia: 
+![Terraform Init](img/ev3/34_Terraform_State_List.png)
 
 #### Ejecución de terraform plan confirmando que no hay cambios pendientes:
 
-Evidencia: ![Terraform Init](img/ev3/35_Terraform_Plan_No_Changes.png)
+Evidencia: 
+![Terraform Init](img/ev3/35_Terraform_Plan_No_Changes.png)
 
 ## Escenario 2 — Actualización y reforzamiento de recursos (refresh y taint)
 En este escenario se introducen cambios manuales en la infraestructura y se sincroniza el estado con terraform refresh, para luego marcar recursos para recreación con terraform taint.
@@ -116,39 +142,48 @@ En este escenario se introducen cambios manuales en la infraestructura y se sinc
 1. Cambios manuales en el Security Group
    Modificación de reglas inbound del SG desde la consola AWS (por ejemplo, apertura del puerto 8080):
 
-Evidencia: ![Terraform Init](img/ev3/36_Modificacion_Security_Group_GUI_Puerto_8080.png)
+Evidencia: 
+![Terraform Init](img/ev3/36_Modificacion_Security_Group_GUI_Puerto_8080.png)
 
 Plan de Terraform detectando 1 cambio:
 
-Evidencias: ![Terraform Init](img/ev3/37_Terraform_Plan_1_Change.png), ![Terraform Init](img/ev3/38_Terraform_Plan_1_Change_Detalle.png)
+Evidencias: 
+![Terraform Init](img/ev3/37_Terraform_Plan_1_Change.png), ![Terraform Init](img/ev3/38_Terraform_Plan_1_Change_Detalle.png)
 
 2. Sincronización del estado con terraform refresh
    Ejecución de terraform refresh para actualizar el tfstate con los valores reales de la infraestructura:
 
-Evidencia: ![Terraform Init](img/ev3/39_Terraform_Refresh.png)
+Evidencia: 
+![Terraform Init](img/ev3/39_Terraform_Refresh.png)
 
 Nuevos planes después del refresh, verificando que las inconsistencias se reducen o se alinean:
 
-Evidencias: ![Terraform Init](img/ev3/40_Terraform_Plan_post_Refresh.png), ![Terraform Init](img/ev3/41_Terraform_Plan_post_Refresh_2.png)
+Evidencias: 
+![Terraform Init](img/ev3/40_Terraform_Plan_post_Refresh.png), ![Terraform Init](img/ev3/41_Terraform_Plan_post_Refresh_2.png)
 
 3. Reforzamiento de la instancia EC2 con terraform taint
    Marcado de la instancia EC2 para recreación:
 
-Evidencias: ![Terraform Init](img/ev3/46_Terraform_taint_EC2_Instance.png), ![Terraform Init](img/ev3/44_Terraform_taint_EC2_Instance_Detalle_1.png), ![Terraform Init](img/ev3/46_Terraform_taint_EC2_Instance_Detalle_2.png).
+Evidencias: 
+![Terraform Init](img/ev3/46_Terraform_taint_EC2_Instance.png), ![Terraform Init](img/ev3/44_Terraform_taint_EC2_Instance_Detalle_1.png), ![Terraform Init](img/ev3/46_Terraform_taint_EC2_Instance_Detalle_2.png).
 
 Plan posterior al taint, mostrando destrucción y recreación de la instancia:
 
-Evidencia: ![Terraform Init](img/ev3/42_Terraform_Plan_Post_Taint.png)
+Evidencia: 
+![Terraform Init](img/ev3/42_Terraform_Plan_Post_Taint.png)
 
 Aplicación de los cambios con terraform apply y recreación de la instancia:
 
-Evidencia: ![Terraform Init](img/ev3/44_Terraform_Apply_post_Taint.png)
+Evidencia: 
+![Terraform Init](img/ev3/44_Terraform_Apply_post_Taint.png)
 
 Outputs y estado tras la recreación:
 
-Outputs: ![Terraform Init](img/ev3/47_Terraform_Outputs_Post_Taint.png)
+Outputs: 
+![Terraform Init](img/ev3/47_Terraform_Outputs_Post_Taint.png)
 
-Lista de estado: ![Terraform Init](img/ev3/48_Terraform_State_List_Post_Taint.png)
+Lista de estado: 
+![Terraform Init](img/ev3/48_Terraform_State_List_Post_Taint.png)
 
 (La desmarcación con terraform untaint forma parte de la lógica de evaluación, aunque la evidencia explícita evidencia error ya que internamente lo aplica con Terraform Apply)
 
@@ -160,21 +195,26 @@ En este escenario se deja de administrar el Security Group desde Terraform, sin 
 
 Evidencias:
 
-Eliminación del módulo SG: ![Terraform Init](img/ev3/49_Eliminar_Modulo_Security_Group.png)
+Eliminación del módulo SG: 
+![Terraform Init](img/ev3/49_Eliminar_Modulo_Security_Group.png)
 
-Modificación de main.tf para SG/VPC: ![Terraform Init](img/ev3/50_Modificacion_Security_Group_Main.png)
+Modificación de main.tf para SG/VPC: 
+![Terraform Init](img/ev3/50_Modificacion_Security_Group_Main.png)
 
-Modificación del módulo VPC en el repo de módulos (main.tf y outputs.tf): ![Terraform Init](img/ev3/51_Modificacion_Repo_Modulos_VPC_Main.png), ![Terraform Init](img/ev3/52_Modificacion_Repo_Modulos_VPC_Outputs.png)
+Modificación del módulo VPC en el repo de módulos (main.tf y outputs.tf): 
+![Terraform Init](img/ev3/51_Modificacion_Repo_Modulos_VPC_Main.png), ![Terraform Init](img/ev3/52_Modificacion_Repo_Modulos_VPC_Outputs.png)
 
 2. Actualización de providers/versions e inicialización
    Actualización de versiones y providers (al actualizar repo de modulo para referenciar ID de Security Group) y nueva inicialización:
 
-Evidencia: ![Terraform Init](img/ev3/53_Terraform_Init_Upgrade.png)
+Evidencia: 
+![Terraform Init](img/ev3/53_Terraform_Init_Upgrade.png)
 
 3. Validación final de que no hay cambios
    Ejecución de terraform plan confirmando que la infraestructura coincide con la configuración (sin intentos de recrear el SG eliminado del código y del estado):
 
-Evidencia: ![Terraform Init](img/ev3/54_Terraform_Plan_No_Chances.png)
+Evidencia: 
+![Terraform Init](img/ev3/54_Terraform_Plan_No_Chances.png)
 
 Conclusiones
 Se logró reconstruir completamente un archivo de estado perdido mediante terraform state import, garantizando que Terraform reconoce todos los recursos desplegados sin generar cambios inesperados.

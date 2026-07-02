@@ -61,8 +61,8 @@ En este escenario se simula la pérdida del archivo terraform.tfstate y se recon
 
 Evidencias:
 
-Cambios en el estado: ![Terraform Init](img/ev3/15_Validación_Cambio_Tfstate.png)
-
+![Terraform Init](img/ev3/15_Validación_Cambio_Tfstate.png)
+Cambios en el estado:
 Plan posterior a la pérdida de tfstate: ![Terraform Init](img/ev3/16_Terraform_Plan_Posterior_Perdida_Tfstate.png)
 
 2. Importación de recursos al estado

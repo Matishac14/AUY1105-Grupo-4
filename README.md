@@ -99,6 +99,8 @@ Evidencia: ![Terraform Init](img/ev3/18_Correccion_Main_Para_Encontrar_Subnet.pn
 
 ### Asociaciones de tablas de ruteo con subnets públicas: ![Terraform Init](img/ev3/31_Importar_Route_Table_Association_Subnet_Public_1_Tfstate_OK.png), ![Terraform Init](img/ev3/32_Importar_Route_Table_Association_Subnet_Public_2_Tfstate_OK.png), ![Terraform Init](img/ev3/33_Importar_Route_Table_Association_Subnet_Public_3_Tfstate_OK.png).
 
+#### Subnets privada 1–3: ![28_Importar_Subnet_Private_1_Tfstate_OK.png](img/ev3/28_Importar_Subnet_Private_1_Tfstate_OK.png) ![29_Importar_Subnet_Private_2_Tfstate_OK.png](img/ev3/29_Importar_Subnet_Private_2_Tfstate_OK.png) ![30_Importar_Subnet_Private_3_Tfstate_OK.png](img/ev3/30_Importar_Subnet_Private_3_Tfstate_OK.png)
+
 3. Verificación de estado y plan sin cambios
    Listado de recursos en el estado con terraform state list:
 

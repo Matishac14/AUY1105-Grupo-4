@@ -35,11 +35,11 @@ Evidencia: ![Terraform Outputs](img/ev3/05_Terraform_Outputs.png)
 
 ## Validación en la consola de AWS de cada recurso:
 
-Bucket S3: ![AWS GUI S3](img/ev3/06_Validación_S3.png)
+Bucket S3: ![06_Validación_S3.png](img/ev3/06_Validacio%CC%81n_S3.png)
 
 VPC: ![AWS GUI VPC](img/ev3/07_Validación_VPC.png)
 
-Subnets: ![AWS GUI Subnet](img/ev3/08_Validación_Subnets.png)
+Subnets: ![08_Validación_Subnet.png](img/ev3/08_Validacio%CC%81n_Subnet.png)
 
 Route Tables: ![Terraform Init](img/ev3/09_Validación_Route_Tables.png)
 
@@ -57,7 +57,7 @@ Escenario 1 — Recuperación del estado perdido (terraform state import)
 En este escenario se simula la pérdida del archivo terraform.tfstate y se reconstruye el estado importando cada recurso existente en AWS.
 
 1. Detección del problema tras la pérdida de tfstate
-   Se elimina el archivo de estado y se ejecuta terraform plan, observando que Terraform propone recrear toda la infraestructura, evidenciando la desincronización.
+   Se renombra el archivo de estado a terraform.tfstate.backup y se ejecuta terraform plan, observando que Terraform propone recrear toda la infraestructura, evidenciando la desincronización.
 
 Evidencias:
 

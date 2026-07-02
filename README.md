@@ -99,7 +99,7 @@ Evidencia: ![Terraform Init](img/ev3/18_Correccion_Main_Para_Encontrar_Subnet.pn
 
 ### Asociaciones de tablas de ruteo con subnets públicas: ![Terraform Init](img/ev3/31_Importar_Route_Table_Association_Subnet_Public_1_Tfstate_OK.png), ![Terraform Init](img/ev3/32_Importar_Route_Table_Association_Subnet_Public_2_Tfstate_OK.png), ![Terraform Init](img/ev3/33_Importar_Route_Table_Association_Subnet_Public_3_Tfstate_OK.png).
 
-#### Subnets privada 1–3: ![28_Importar_Subnet_Private_1_Tfstate_OK.png](img/ev3/28_Importar_Subnet_Private_1_Tfstate_OK.png) ![29_Importar_Subnet_Private_2_Tfstate_OK.png](img/ev3/29_Importar_Subnet_Private_2_Tfstate_OK.png) ![30_Importar_Subnet_Private_3_Tfstate_OK.png](img/ev3/30_Importar_Subnet_Private_3_Tfstate_OK.png)
+#### Subnets privada 1–3: ![28_Importar_Subnet_Private_1_Tfstate_OK.png](img/ev3/28_Importar_Subnet_Private_1_Tfstate_OK.png), ![29_Importar_Subnet_Private_2_Tfstate_OK.png](img/ev3/29_Importar_Subnet_Private_2_Tfstate_OK.png), ![30_Importar_Subnet_Private_3_Tfstate_OK.png](img/ev3/30_Importar_Subnet_Private_3_Tfstate_OK.png)
 
 3. Verificación de estado y plan sin cambios
    Listado de recursos en el estado con terraform state list:
@@ -150,13 +150,13 @@ Outputs: ![Terraform Init](img/ev3/47_Terraform_Outputs_Post_Taint.png)
 
 Lista de estado: ![Terraform Init](img/ev3/48_Terraform_State_List_Post_Taint.png)
 
-(La desmarcación con terraform untaint forma parte de la lógica de evaluación, aunque la evidencia explícita puede estar integrada en los outputs y state list posteriores.)
+(La desmarcación con terraform untaint forma parte de la lógica de evaluación, aunque la evidencia explícita evidencia error ya que internamente lo aplica con Terraform Apply)
 
 ## Escenario 3 — Eliminación de recursos del estado (terraform state rm) sin borrar en AWS
 En este escenario se deja de administrar el Security Group desde Terraform, sin eliminar el recurso real de la infraestructura.
 
 1. Identificación del módulo y limpieza de código
-   Eliminación del módulo de Security Group y ajustes necesarios en main.tf y outputs.tf del módulo VPC para dejar de exponer el SG como output administrado:
+   Eliminación del módulo de Security Group y ajustes necesarios en main.tf y outputs.tf del módulo VPC para dejar de exponer el SG como output administrado en repo https://github.com/Matishac14/Modulos-AUY1105-EV3.git:
 
 Evidencias:
 
@@ -167,7 +167,7 @@ Modificación de main.tf para SG/VPC: ![Terraform Init](img/ev3/50_Modificacion_
 Modificación del módulo VPC en el repo de módulos (main.tf y outputs.tf): ![Terraform Init](img/ev3/51_Modificacion_Repo_Modulos_VPC_Main.png), ![Terraform Init](img/ev3/52_Modificacion_Repo_Modulos_VPC_Outputs.png)
 
 2. Actualización de providers/versions e inicialización
-   Actualización de versiones y providers (por ejemplo, para compatibilidad con módulos) y nueva inicialización:
+   Actualización de versiones y providers (al actualizar repo de modulo para referenciar ID de Security Group) y nueva inicialización:
 
 Evidencia: ![Terraform Init](img/ev3/53_Terraform_Init_Upgrade.png)
 
